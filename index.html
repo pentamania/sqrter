@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="pentamania">
+  <meta http-equiv="x-ua-compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Simple QRcode converter</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css" integrity="sha512-xiunq9hpKsIcz42zt0o2vCo34xV0j6Ny8hgEylN3XBglZDtTZ2nwnqF/Z/TTCc18sGdvCjbFInNd++6q3J0N6g==" crossorigin="anonymous">
+  <style type="text/css">
+    #wrapper {
+      margin: 0 auto;
+      text-align: center;
+    }
+    #urlInput {
+      width: 80%;
+    }
+    #ipNumInput {
+      width: 200px;
+    }
+    p {
+      margin-bottom: 3rem;
+    }
+    #qrcode img {
+      display: inline !important;
+      border: 1px solid black;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <h1>Simple QRcode converter</h1>
+
+    <p>
+      <input id="urlInput" type="text" placeholder="ここにURLを書く" onClick="this.select();" /><br>
+      <button id="convertCodeButton" onclick="outputCode()">変換</button>
+    </p>
+    
+    <p>
+      <h3>開発者用：localhostをローカルIPに入れ替えて変換</h3>
+      ローカルIP: <input id="ipNumInput" type="text" placeholder="ローカルIP" onClick="this.select();" /><br>
+      <!-- <input id="portNumInput" type="number" placeholder="ポート番号" value="8087" /><br> -->
+      <button id="convertCodeWithReplacementButton" onclick="outputCodeWithLocalIpReplaced()">入れ替え変換</button>
+    </p>
+    
+    <p>
+      <h2>OUTPUT</h2>
+      <p id="qrcode"></p>
+      変換元URL: <a id="outputURL"></a>
+    </p>
+    
+    <p>
+      <h2>Powered by</h2>
+      <a href="https://github.com/davidshimjs/qrcodejs">https://github.com/davidshimjs/qrcodejs</a>
+    </p>
+  </div><!-- wrapper -->
+<script src='https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js'></script>
+<script src="./main.js"></script>
+</body>
+</html>
